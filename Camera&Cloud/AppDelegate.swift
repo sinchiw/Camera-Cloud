@@ -8,18 +8,66 @@
 
 import UIKit
 import CoreData
+import Firebase
+//import GoogleSignIn
+
+//when you want to make the sing in work, you have to get the enable google sign in
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+//you deleted the googlesign in app delegate from here
+class AppDelegate: UIResponder, UIApplicationDelegate  {
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        if (error) != nil {
+//            // ...
+//            return
+//        }
+//
+//        guard let authentication = user.authentication else { return }
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+//                                                       accessToken: authentication.accessToken)
+//        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+//            if let error = error {
+//                // ...
+//                print("error", error)
+//                return
+//            }
+//            // User is signed in
+//            // ...
+//        }
+//        // ...
+//    }
+    
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // look up a video on how to set up your own storyboard , swift: firebase s3 - how to build a login page using ios9 constraint anchors (ep1)
+//        intergreting your google sign in
+//        GIDSignIn.sharedInstance().clientID = "325054046301-4h97vq5v041dok9knfmh9selqqrvb61a.apps.googleusercontent.com"
+//        GIDSignIn.sharedInstance().delegate = self
+        //intergating the firebase stuff
+//        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+//        GIDSignIn.sharedInstance().delegate = self
+
+        //change the color of the nav bar
+        
+        FirebaseApp.configure()
+
+        UINavigationBar.appearance().barTintColor = UIColor(red: 100.0/255.0, green: 25.0/255.0, blue: 50.0/255.0, alpha: 1.0)
+        
+       
+        
         return true
     }
-
+//    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+//        -> Bool {
+//            return GIDSignIn.sharedInstance().handle(url,
+//                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+//                                                     annotation: [:])
+//    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

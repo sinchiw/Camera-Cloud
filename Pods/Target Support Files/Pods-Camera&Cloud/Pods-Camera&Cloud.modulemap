@@ -1,0 +1,6 @@
+framework module Pods_Camera_Cloud {
+  umbrella header "Pods-Camera&Cloud-umbrella.h"
+
+  export *
+  module * { export * }
+}
